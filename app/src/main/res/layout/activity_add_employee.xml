@@ -115,13 +115,13 @@
 
         </androidx.appcompat.widget.LinearLayoutCompat>
     </ScrollView>
-    <androidx.appcompat.widget.AppCompatTextView
+    <Button
         android:layout_margin="12dp"
         android:padding="12dp"
         android:id="@+id/tvAdd"
         android:gravity="center"
         android:background="@drawable/bg_radius_blue"
-        android:textColor="@color/design_default_color_primary"
+        android:textColor="@color/white"
         android:layout_width="match_parent"
         android:text="@string/add"
         android:layout_height="wrap_content"/>

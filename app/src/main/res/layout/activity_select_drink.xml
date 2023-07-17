@@ -40,12 +40,12 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
-    <androidx.appcompat.widget.AppCompatTextView
+    <Button
         android:layout_margin="12dp"
         android:background="@drawable/bg_radius_blue"
         android:gravity="center"
         android:id="@+id/tvDone"
-        android:textColor="@color/design_default_color_primary"
+        android:textColor="@color/white"
         android:text="@string/done"
         android:layout_width="match_parent"
         android:layout_height="45dp"/>

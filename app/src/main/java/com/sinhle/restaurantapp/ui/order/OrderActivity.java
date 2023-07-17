@@ -164,7 +164,7 @@ public class OrderActivity extends AppCompatActivity {
             document.finishPage(page);
 
             // write the document content
-            String targetPdf = "/sdcard/page.pdf";
+            String targetPdf = "/sdcard/HoaDon.pdf";
             File filePath;
             filePath = new File(targetPdf);
             try {
@@ -188,7 +188,7 @@ public class OrderActivity extends AppCompatActivity {
 
     private void openPdf() {
         try {
-            File file = new File("/sdcard/page.pdf");
+            File file = new File("/sdcard/HoaDon.pdf");
             if (file.exists()) {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 Uri uri = Uri.fromFile(file);

@@ -34,7 +34,7 @@
             android:textColor="@color/design_default_color_primary"
             android:textSize="17dp" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <Button
             android:id="@+id/tvOrder"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -44,8 +44,8 @@
             android:layout_marginRight="12dp"
             android:gravity="center"
             android:text="@string/print_order"
-            android:textColor="@color/design_default_color_primary"
-            android:textSize="17dp" />
+            android:textColor="@color/white"
+            android:textSize="12dp" />
     </RelativeLayout>
 
     <ScrollView

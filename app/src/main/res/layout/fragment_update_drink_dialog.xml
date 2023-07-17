@@ -75,34 +75,34 @@
         android:layout_height="wrap_content">
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_margin="12dp"
-            android:background="@drawable/bg_radius_blue"
+            android:background="@color/teal_200"
             android:gravity="center"
             android:id="@+id/tvUpdate"
             android:text="@string/update"
-            android:textColor="@color/design_default_color_primary"
+            android:textColor="@color/white"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="45dp"/>
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_margin="12dp"
-            android:background="@drawable/bg_radius_red"
+            android:background="@color/red"
             android:gravity="center"
             android:id="@+id/tvDelete"
             android:text="@string/delete"
-            android:textColor="@color/red"
+            android:textColor="@color/white"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="45dp"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <Button
         android:layout_margin="12dp"
         android:background="@drawable/bg_radius_blue"
         android:gravity="center"
         android:id="@+id/tvAdd"
         android:text="@string/add"
-        android:textColor="@color/design_default_color_primary"
+        android:textColor="@color/white"
         android:layout_width="match_parent"
         android:layout_height="45dp"/>
 
