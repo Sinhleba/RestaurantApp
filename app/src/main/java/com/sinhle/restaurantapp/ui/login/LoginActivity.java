@@ -115,7 +115,7 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             binding.tilPassword.setError(null);
         }
-        //
+        //xac thuc tai khoan
         if ((binding.tipUserName.getText().toString().trim().equals(employee)
                 || binding.tipUserName.getText().toString().trim().equals(manager)) && binding.tipPassword.getText().toString().trim().equals(password)) {
 

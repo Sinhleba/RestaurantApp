@@ -14,12 +14,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try {
-//            new Handler().postDelayed(new Runnable() {
-//                @Override
-//                public void run() {
-//
-//                }
-//            }, 2000);
+
             if (Common.getBoolean(SplashActivity.this, Common.IS_LOGIN)) {
                 Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                 startActivity(intent);
@@ -29,13 +24,9 @@ public class SplashActivity extends AppCompatActivity {
             }
             finish();
 
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
-
-
 }

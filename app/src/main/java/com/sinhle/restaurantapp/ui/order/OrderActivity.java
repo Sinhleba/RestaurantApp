@@ -22,6 +22,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.sinhle.restaurantapp.R;
@@ -81,30 +82,18 @@ public class OrderActivity extends AppCompatActivity {
     }
 
     private void initListener() {
-        binding.ivBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
+        binding.ivBack.setOnClickListener(v -> finish());
+
+
+        binding.tvOrder.setOnClickListener(v -> {
+            try {
+                ActivityCompat.requestPermissions(OrderActivity.this,
+                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                        1);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         });
-
-
-        binding.tvOrder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    ActivityCompat.requestPermissions(OrderActivity.this,
-                            new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                            1);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-
-            }
-        });
-
-
     }
 
     @Override
@@ -127,7 +116,6 @@ public class OrderActivity extends AppCompatActivity {
                     // functionality that depends on this permission.
                     Toast.makeText(OrderActivity.this, "Permission denied to read your External storage", Toast.LENGTH_SHORT).show();
                 }
-                return;
             }
 
             // other 'case' lines to check for other
@@ -137,10 +125,8 @@ public class OrderActivity extends AppCompatActivity {
 
     private void createPdf() {
         try {
-
-
             WindowManager wm = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
-            //  Display display = wm.getDefaultDisplay();
+
             DisplayMetrics displaymetrics = new DisplayMetrics();
             this.getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
             float hight = displaymetrics.heightPixels;
@@ -157,14 +143,16 @@ public class OrderActivity extends AppCompatActivity {
             Paint paint = new Paint();
             canvas.drawPaint(paint);
 
-            bitmap = Bitmap.createScaledBitmap(bitmap, convertWidth, convertHighet, true);
+            bitmap = LoadBitmap(binding.getRoot(), binding.getRoot().getWidth(), binding.getRoot().getHeight());
+
 
             paint.setColor(Color.BLUE);
             canvas.drawBitmap(bitmap, 0, 0, null);
             document.finishPage(page);
 
             // write the document content
-            String targetPdf = "/sdcard/HoaDon.pdf";
+            String targetPdf = getExternalFilesDir(null).getAbsolutePath() + File.separator + "HoaDon.pdf";
+
             File filePath;
             filePath = new File(targetPdf);
             try {
@@ -188,24 +176,24 @@ public class OrderActivity extends AppCompatActivity {
 
     private void openPdf() {
         try {
-            File file = new File("/sdcard/HoaDon.pdf");
+            File file = new File(getExternalFilesDir(null), "HoaDon.pdf");
             if (file.exists()) {
+                Uri pdfUri = FileProvider.getUriForFile(this, getApplicationContext().getPackageName() + ".provider", file);
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                Uri uri = Uri.fromFile(file);
-                intent.setDataAndType(uri, "application/pdf");
+                intent.setDataAndType(pdfUri, "application/pdf");
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 try {
                     startActivity(intent);
                 } catch (ActivityNotFoundException e) {
-                    Toast.makeText(this, "No Application for pdf view", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "No Application for PDF view", Toast.LENGTH_SHORT).show();
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
+
 
     private Bitmap LoadBitmap(View v, int width, int height) {
         Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
@@ -237,6 +225,4 @@ public class OrderActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
-
 }
