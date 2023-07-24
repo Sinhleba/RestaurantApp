@@ -27,9 +27,9 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_gravity="center"
+            android:text="Chọn thực đơn"
             android:textColor="@color/design_default_color_primary"
             android:textSize="17sp"
-            android:text="Chọn đồ uống"
             tools:ignore="HardcodedText" />
     </RelativeLayout>
     <androidx.recyclerview.widget.RecyclerView
