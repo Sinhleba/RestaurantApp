@@ -17,6 +17,7 @@ The application is built on Android Studio and written in the Java programming l
 # Use Case Description and Sequence Diagram in each Use Case:
 ![image](https://github.com/Sinhleba/RestaurantApp/assets/94295124/0a802ed6-6fa6-4553-bd5a-1a0ec28c2041)
 -  UC01: Login
+![image](https://github.com/Sinhleba/RestaurantApp/assets/94295124/3c9548ca-30ed-42d0-8cac-096415ceb0e5)
 -  UC02: Table Booking
 -  UC03: Menu
 -  UC04: Payment
