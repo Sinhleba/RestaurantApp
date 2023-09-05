@@ -8,6 +8,7 @@ The application is built on Android Studio and written in the Java programming l
 -  Revenue statistics
 -  Payment and invoice generation
 -  Exit the application
+
 # Actor Description:
 -  Admin:
 ![image](https://github.com/Sinhleba/RestaurantApp/assets/94295124/9084b1bb-a080-4273-bde1-d3b5af0f9138)
